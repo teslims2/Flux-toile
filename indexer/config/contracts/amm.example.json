@@ -1,0 +1,16 @@
+{
+  "_comment": "Example CONFIG_FILE for pointing this indexer at a real, live Soroban AMM contract: the Soroswap Router on Stellar testnet (https://github.com/soroswap/core, contract id taken verbatim from public/testnet.contracts.json in that repo). It emits 'swap', 'add' (liquidity) and 'remove' events, and was confirmed actively emitting 'swap' events on testnet while this file was written. See the README's 'Worked example' section for a real decoded event captured from this exact contract.",
+  "rpcUrl": "https://soroban-testnet.stellar.org",
+  "networkPassphrase": "Test SDF Network ; September 2015",
+  "contractId": "CCJUD55AG6W5HAI5LRVNKAE5WDP5XGZBUDS5WNTIVDU7O264UZZE7BRD",
+  "contractLabel": "soroswap-router-testnet",
+  "startLedger": null,
+  "pollIntervalMs": 5000,
+  "eventsPageLimit": 100,
+  "maxLedgersPerBatch": 2000,
+  "gapScanWindow": 100000,
+  "dbPath": "./data/amm.sqlite",
+  "apiPort": 8080,
+  "apiHost": "0.0.0.0",
+  "logLevel": "info"
+}

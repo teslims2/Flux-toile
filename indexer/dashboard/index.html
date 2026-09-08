@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flux-toile Indexer</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">◈</span>
+      <span class="brand-name">Flux-toile Indexer</span>
+    </div>
+    <div class="status" id="connectionStatus">
+      <span class="dot dot-pending" id="connectionDot"></span>
+      <span id="connectionLabel">connecting…</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="stats" id="statsGrid" aria-label="Indexing status">
+      <div class="stat">
+        <div class="stat-label">Contract</div>
+        <div class="stat-value mono" id="statContract">—</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Last processed ledger</div>
+        <div class="stat-value" id="statLedger">—</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Indexed events</div>
+        <div class="stat-value" id="statTotal">—</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Ledger range</div>
+        <div class="stat-value" id="statRange">—</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Open gaps</div>
+        <div class="stat-value" id="statGaps">—</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Malformed</div>
+        <div class="stat-value" id="statMalformed">—</div>
+      </div>
+    </section>
+
+    <section class="controls">
+      <label>
+        Event type
+        <select id="filterType">
+          <option value="">all</option>
+        </select>
+      </label>
+      <label>
+        Ledger from
+        <input type="number" id="filterFrom" placeholder="any" min="0" />
+      </label>
+      <label>
+        Ledger to
+        <input type="number" id="filterTo" placeholder="any" min="0" />
+      </label>
+      <label>
+        Refresh
+        <select id="refreshInterval">
+          <option value="3000">3s</option>
+          <option value="5000" selected>5s</option>
+          <option value="10000">10s</option>
+          <option value="30000">30s</option>
+        </select>
+      </label>
+      <button id="pauseButton" type="button">Pause</button>
+      <span class="last-updated" id="lastUpdated"></span>
+    </section>
+
+    <section class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Ledger</th>
+            <th>Time</th>
+            <th>Event</th>
+            <th>Tx hash</th>
+            <th>Topics</th>
+            <th>Value</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="eventsBody">
+          <tr><td colspan="7" class="empty">Loading events…</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <span>Flux-toile Indexer — off-chain event indexer for Soroban smart contracts</span>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
