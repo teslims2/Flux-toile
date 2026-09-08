@@ -1,0 +1,36 @@
+{
+  "name": "soroban-event-indexer",
+  "version": "1.0.0",
+  "description": "Off-chain indexer + REST API for Soroban contract events",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc && mkdir -p dist/dashboard && cp -r src/dashboard/* dist/dashboard/",
+    "dev:worker": "tsx watch src/entrypoints/worker.ts",
+    "dev:api": "tsx watch src/entrypoints/api.ts",
+    "dev:all": "tsx watch src/entrypoints/all.ts",
+    "start:worker": "node dist/entrypoints/worker.js",
+    "start:api": "node dist/entrypoints/api.js",
+    "start:all": "node dist/entrypoints/all.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@stellar/stellar-sdk": "^17.0.1",
+    "better-sqlite3": "^13.0.3",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.5.0",
+    "concurrently": "^10.0.5",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.0"
+  }
+}
